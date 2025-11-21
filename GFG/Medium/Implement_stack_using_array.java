@@ -1,3 +1,5 @@
+package GFG.Medium;
+
 /* Implement a Stack using an Array, where the size of the array, n is given.
 The Stack must support the following operations:
 
