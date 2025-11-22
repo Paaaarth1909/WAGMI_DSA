@@ -1,3 +1,5 @@
+package GFG.Basic;
+
 /* Implement a Queue using a Linked List, this queue has no fixed capacity and can grow dynamically until memory is available.
 The Queue must support the following operations:
 
