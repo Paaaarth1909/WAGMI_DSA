@@ -1,3 +1,5 @@
+package GFG.Easy;
+
 /* Given a string s, composed of different combinations of '(' , ')', '{', '}', '[', ']'. Determine whether the Expression is balanced or not.
 An expression is balanced if:
 
