@@ -22,6 +22,9 @@ Constraints:
 s[i] ∈ {'{', '}', '(', ')', '[', ']'}
 
 */
+
+import java.util.Stack;
+
 class Solution {
     public boolean isBalanced(String s) {
         Stack<Character> st = new Stack<>();
