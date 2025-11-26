@@ -42,3 +42,23 @@ Constraints:
 s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 */
+class Solution {
+    public int romanToInt(String s) {
+        int res = 0, prev = 0;
+        for(int i = s.length() - 1; i >= 0; i--) {
+            int val = 0;
+            char c = s.charAt(i);
+            if(c == 'I') val = 1;
+            else if(c == 'V') val = 5;
+            else if(c == 'X') val = 10;
+            else if(c == 'L') val = 50;
+            else if(c == 'C') val = 100;
+            else if(c == 'D') val = 500;
+            else if(c == 'M') val = 1000;
+            if(val < prev) res -= val;
+            else res += val;
+            prev = val;
+        }
+        return res;
+    }
+}
