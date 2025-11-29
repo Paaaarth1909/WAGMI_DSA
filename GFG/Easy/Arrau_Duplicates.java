@@ -15,3 +15,20 @@ Constraints:
 1 ≤ arr[i] ≤ n
 
 */
+class Solution {
+    public ArrayList<Integer> findDuplicates(int[] arr) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        
+        for (int i = 0; i < arr.length; i++) {
+            int index = Math.abs(arr[i]) - 1;
+            
+            if (arr[index] < 0) {
+                ans.add(Math.abs(arr[i]));
+            } else {
+                arr[index] = -arr[index];
+            }
+        }
+        
+        return ans;
+    }
+}
