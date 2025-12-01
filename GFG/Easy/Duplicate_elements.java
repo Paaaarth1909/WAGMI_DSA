@@ -26,6 +26,7 @@ Output:
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 
 class Geeks {
     public static void SortedDuplicates(int arr[], int n) {
