@@ -29,6 +29,9 @@ Constraints:
 k is in the range [1, the number of unique elements in the array].
 It is guaranteed that the answer is unique.
 */
+
+import java.util.PriorityQueue;
+
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         HashMap<Integer, Integer> count = new HashMap<>();
