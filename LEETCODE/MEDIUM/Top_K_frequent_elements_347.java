@@ -30,6 +30,7 @@ k is in the range [1, the number of unique elements in the array].
 It is guaranteed that the answer is unique.
 */
 
+import java.util.HashMap;
 import java.util.PriorityQueue;
 
 class Solution {
