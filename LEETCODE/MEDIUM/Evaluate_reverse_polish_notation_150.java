@@ -40,3 +40,26 @@ Constraints:
 1 <= tokens.length <= 104
 tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].
 */
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Stack<Integer> st = new Stack<>();
+        for (String token : tokens) {
+            if (token.equals("+")) {
+                st.push(st.pop() + st.pop());
+            } else if (token.equals("-")) {
+                int b = st.pop();
+                int a = st.pop();
+                st.push(a - b);
+            } else if (token.equals("*")) {
+                st.push(st.pop() * st.pop());
+            } else if (token.equals("/")) {
+                int b = st.pop();
+                int a = st.pop();
+                st.push(a / b);
+            } else {
+                st.push(Integer.parseInt(token));
+            }
+        }
+        return st.pop();
+    }
+}
