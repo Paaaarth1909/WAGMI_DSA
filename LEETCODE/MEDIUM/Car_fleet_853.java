@@ -53,6 +53,9 @@ n == position.length == speed.length
 All the values of position are unique.
 0 < speed[i] <= 106
 */
+
+import java.util.Arrays;
+
 class Solution {
     public int carFleet(int target, int[] position, int[] speed) {
         int n = position.length;
