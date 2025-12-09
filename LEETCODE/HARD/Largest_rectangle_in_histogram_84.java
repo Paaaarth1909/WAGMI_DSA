@@ -21,6 +21,9 @@ Constraints:
 1 <= heights.length <= 105
 0 <= heights[i] <= 104
 */
+
+import java.util.Stack;
+
 class Solution {
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> st = new Stack<>();
