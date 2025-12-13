@@ -1,5 +1,7 @@
 package GFG.Basic;
 
+
+
 /* You are given the head of a Singly Linked List and a value x, insert that value x at the end of the LinkedList and return the head of the modified Linked List.
 
 Examples :
