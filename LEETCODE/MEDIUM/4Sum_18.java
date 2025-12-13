@@ -24,6 +24,7 @@ Constraints:
 -109 <= target <= 109
 */
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 class Solution {
