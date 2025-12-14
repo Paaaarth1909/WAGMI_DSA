@@ -26,6 +26,7 @@ intervals[i].length == 2
 0 <= starti <= endi <= 104
 */
 
+import java.util.Arrays;
 import java.util.List;
 
 class Solution {
