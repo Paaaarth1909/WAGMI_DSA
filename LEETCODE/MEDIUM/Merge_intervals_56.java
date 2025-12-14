@@ -25,6 +25,9 @@ Constraints:
 intervals[i].length == 2
 0 <= starti <= endi <= 104
 */
+
+import java.util.List;
+
 class Solution {
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
