@@ -22,7 +22,7 @@ Constraints:
 0 ≤ pos ≤ number of nodes
 
 */
-/*
+
 class Node {
     int data;
     Node next;
@@ -32,7 +32,7 @@ class Node {
         next = null;
     }
 }
-*/
+
 
 class Solution {
     public boolean detectLoop(Node head) {
