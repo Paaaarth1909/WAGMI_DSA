@@ -1,3 +1,5 @@
+package GFG.Hard;
+
 /* You are given a circular array arr[] of integers, find the maximum possible sum of a non-empty subarray. In a circular array, the subarray can start at the end and wrap around to the beginning. Return the maximum non-empty subarray sum, considering both non-wrapping and wrapping cases.
 
 Examples:
@@ -16,7 +18,8 @@ Constraints:
 -104 ≤ arr[i] ≤ 104
 
 */
-int maxCircularSum(int[] arr, int n) {
+public class MaxCircularSubarraySum {
+    int maxCircularSum(int[] arr, int n) {
     int total = 0;
     int curMax = 0, maxSum = arr[0];
     int curMin = 0, minSum = arr[0];
@@ -35,4 +38,5 @@ int maxCircularSum(int[] arr, int n) {
         return maxSum;
 
     return (maxSum > (total - minSum)) ? maxSum : (total - minSum);
+    }
 }
