@@ -33,6 +33,9 @@ key and value consist of lowercase English letters and digits.
 All the timestamps timestamp of set are strictly increasing.
 At most 2 * 105 calls will be made to set and get.
 */
+
+import java.util.ArrayList;
+
 class TimeMap {
     HashMap<String, ArrayList<Integer>> time;
     HashMap<String, ArrayList<String>> value;
