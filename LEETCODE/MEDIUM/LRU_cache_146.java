@@ -38,6 +38,9 @@ Constraints:
 At most 2 * 105 calls will be made to get and put.
  
 */
+
+import java.util.HashMap;
+
 class LRUCache {
 
     class Node {
