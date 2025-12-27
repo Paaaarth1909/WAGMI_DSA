@@ -20,3 +20,26 @@ Constraints:
 1 <= s1.length, s2.length <= 104
 s1 and s2 consist of lowercase English letters.
 */
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        if (s1.length() > s2.length()) return false;
+
+        int[] need = new int[26];
+        int[] win = new int[26];
+
+        for (char c : s1.toCharArray()) need[c - 'a']++;
+
+        int l = 0;
+        for (int r = 0; r < s2.length(); r++) {
+            win[s2.charAt(r) - 'a']++;
+
+            if (r - l + 1 > s1.length()) {
+                win[s2.charAt(l) - 'a']--;
+                l++;
+            }
+
+            if (Arrays.equals(need, win)) return true;
+        }
+        return false;
+    }
+}
