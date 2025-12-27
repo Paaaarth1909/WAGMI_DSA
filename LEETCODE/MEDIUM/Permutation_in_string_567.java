@@ -20,6 +20,9 @@ Constraints:
 1 <= s1.length, s2.length <= 104
 s1 and s2 consist of lowercase English letters.
 */
+
+import java.util.Arrays;
+
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
         if (s1.length() > s2.length()) return false;
