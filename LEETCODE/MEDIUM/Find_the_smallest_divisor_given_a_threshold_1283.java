@@ -24,3 +24,20 @@ Constraints:
 1 <= nums[i] <= 106
 nums.length <= threshold <= 106
 */
+class Solution {
+    public int smallestDivisor(int[] nums, int threshold) {
+        int l = 1, r = 0;
+        for (int n : nums) r = Math.max(r, n);
+
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            long sum = 0;
+            for (int n : nums) {
+                sum += (n + m - 1) / m;
+            }
+            if (sum > threshold) l = m + 1;
+            else r = m;
+        }
+        return l;
+    }
+}
