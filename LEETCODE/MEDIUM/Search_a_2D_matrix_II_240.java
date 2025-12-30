@@ -26,3 +26,22 @@ All the integers in each row are sorted in ascending order.
 All the integers in each column are sorted in ascending order.
 -109 <= target <= 109
 */
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int row = 0, col = n - 1;
+
+        while (row < m && col >= 0) {
+            int val = matrix[row][col];
+            if (val == target) return true;
+            else if (target > val) row++;
+            else col--;
+        }
+        return false;
+    }
+}
