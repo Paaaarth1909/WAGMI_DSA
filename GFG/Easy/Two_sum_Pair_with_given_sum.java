@@ -16,3 +16,18 @@ Constraints:
 -105 ≤ arr[i] ≤ 105
 -2*105 ≤ target ≤ 2*105
 */
+class Solution {
+    boolean twoSum(int arr[], int target) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int x : arr) {
+            int need = target - x;
+            if (set.contains(need)) {
+                return true;
+            }
+            set.add(x);
+        }
+
+        return false;
+    }
+}
