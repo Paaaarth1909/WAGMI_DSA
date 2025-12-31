@@ -18,3 +18,23 @@ Constraints:
 1 <= b[i] <= 105
 
 */
+import java.util.*;
+
+class Solution {
+    ArrayList<Integer> findMissing(int[] a, int[] b) {
+        HashSet<Integer> set = new HashSet<>();
+        ArrayList<Integer> res = new ArrayList<>();
+
+        for (int x : b) {
+            set.add(x);
+        }
+
+        for (int x : a) {
+            if (!set.contains(x)) {
+                res.add(x);
+            }
+        }
+
+        return res;
+    }
+}
