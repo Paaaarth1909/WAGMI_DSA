@@ -23,7 +23,7 @@ Constraints:
 All the integers in nums are unique.
 nums is sorted in ascending order. 
 */
-package LEETCODE.EASY;
+
 
 class Solution {
     public int search(int[] nums, int target) {
