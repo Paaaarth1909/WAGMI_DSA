@@ -24,6 +24,9 @@ Constraints:
 2 ≤ k ≤ stalls.size()
 
 */
+
+import java.util.Arrays;
+
 class Solution {
     public int aggressiveCows(int[] stalls, int k) {
         Arrays.sort(stalls);
