@@ -20,3 +20,9 @@ Constraints:
 1 <= s.length, goal.length <= 100
 s and goal consist of lowercase English letters.
 */
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        if (s.length() != goal.length()) return false;
+        return (s + s).contains(goal);
+    }
+}
