@@ -26,7 +26,7 @@ nums2.length == n
 -106 <= nums1[i], nums2[i] <= 106
  
 */
-public class Solution {
+public class Median_of_two_sorted_arrays_4 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
     	int p1 = 0, p2 = 0, pos = 0;
     	int ls1 = nums1.length, ls2 = nums2.length;
