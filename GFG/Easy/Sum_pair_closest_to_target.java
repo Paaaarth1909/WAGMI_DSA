@@ -18,3 +18,40 @@ Constraints:
 0 ≤ arr[i] ≤ 105
 
 */
+import java.util.*;
+
+class Solution {
+    public ArrayList<Integer> sumClosest(int[] arr, int target) {
+        ArrayList<Integer> res = new ArrayList<>();
+        int n = arr.length;
+        if (n < 2) return res;
+
+        Arrays.sort(arr);
+
+        int l = 0, r = n - 1;
+        int bestDiff = Integer.MAX_VALUE;
+        int bestA = 0, bestB = 0;
+
+        while (l < r) {
+            int sum = arr[l] + arr[r];
+            int diff = Math.abs(sum - target);
+
+            if (diff < bestDiff ||
+               (diff == bestDiff && Math.abs(arr[r] - arr[l]) > Math.abs(bestB - bestA))) {
+                bestDiff = diff;
+                bestA = arr[l];
+                bestB = arr[r];
+            }
+
+            if (sum < target) {
+                l++;
+            } else {
+                r--;
+            }
+        }
+
+        res.add(bestA);
+        res.add(bestB);
+        return res;
+    }
+}
