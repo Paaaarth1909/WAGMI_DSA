@@ -18,4 +18,46 @@ Constraints:
 -105 <= arr[i] <= 105
 
 */
+class Solution {
+
+    int countPairs(int arr[], int target) {
+        int n = arr.length;
+        int left = 0, right = n - 1;
+        long count = 0;
+
+        while (left < right) {
+            int sum = arr[left] + arr[right];
+
+            if (sum < target) {
+                left++;
+            } else if (sum > target) {
+                right--;
+            } else {
+                // sum == target
+                if (arr[left] == arr[right]) {
+                    int cnt = right - left + 1;
+                    count += (long) cnt * (cnt - 1) / 2;
+                    break;
+                } else {
+                    int leftVal = arr[left];
+                    int rightVal = arr[right];
+                    int cntL = 0, cntR = 0;
+
+                    while (left < right && arr[left] == leftVal) {
+                        cntL++;
+                        left++;
+                    }
+                    while (left <= right && arr[right] == rightVal) {
+                        cntR++;
+                        right--;
+                    }
+
+                    count += (long) cntL * cntR;
+                }
+            }
+        }
+
+        return (int) count;
+    }
+}
 
