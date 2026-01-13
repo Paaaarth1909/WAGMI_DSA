@@ -1,3 +1,5 @@
+package GFG.Medium;
+
 /* Given a linked list containing n head nodes where every node in the linked list contains two pointers:
 (i) next points to the next node in the list.
 (ii) bottom points to a sub-linked list where the current node is the head.
