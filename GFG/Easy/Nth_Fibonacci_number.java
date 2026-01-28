@@ -1,3 +1,5 @@
+package GFG.Easy;
+
 /* Given a non-negative integer n, your task is to find the nth Fibonacci number.
 
 The Fibonacci sequence is a sequence where the next term is the sum of the previous two terms. The first two terms of the Fibonacci sequence are 0 followed by 1. The Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21
@@ -22,3 +24,19 @@ Constraints:
 0 ≤ n ≤ 30
 
 */
+class Solution {
+    public int nthFibonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+
+        int a = 0, b = 1;
+
+        for (int i = 2; i <= n; i++) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+
+        return b;
+    }
+}
