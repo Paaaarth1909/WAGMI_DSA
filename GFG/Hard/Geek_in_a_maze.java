@@ -29,3 +29,89 @@ Constraints:
 0 ≤ r, c < 106
 0 ≤ u, d ≤ 106 
 */
+import java.util.*;
+
+class Solution {
+    public int numberOfCells(int r, int c, int u, int d, char[][] mat) {
+
+        int n = mat.length;
+        int m = mat[0].length;
+
+        if (mat[r][c] == '#') {
+            return 0;
+        }
+
+        int[][] dist = new int[n][m];
+
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(dist[i], Integer.MAX_VALUE);
+        }
+
+        Deque<int[]> q = new ArrayDeque<>();
+
+        dist[r][c] = 0;
+        q.addFirst(new int[]{r, c});
+
+        int[] dr = {-1, 1, 0, 0};
+        int[] dc = {0, 0, -1, 1};
+
+        while (!q.isEmpty()) {
+
+            int[] cur = q.pollFirst();
+
+            int x = cur[0];
+            int y = cur[1];
+
+            for (int i = 0; i < 4; i++) {
+
+                int nx = x + dr[i];
+                int ny = y + dc[i];
+
+                if (nx < 0 || nx >= n || ny < 0 || ny >= m) {
+                    continue;
+                }
+
+                if (mat[nx][ny] == '#') {
+                    continue;
+                }
+
+                int cost = nx < x ? 1 : 0;
+
+                if (dist[x][y] + cost < dist[nx][ny]) {
+
+                    dist[nx][ny] = dist[x][y] + cost;
+
+                    if (cost == 0) {
+                        q.addFirst(new int[]{nx, ny});
+                    } else {
+                        q.addLast(new int[]{nx, ny});
+                    }
+                }
+            }
+        }
+
+        int ans = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+
+                if (mat[i][j] == '#') {
+                    continue;
+                }
+
+                if (dist[i][j] == Integer.MAX_VALUE) {
+                    continue;
+                }
+
+                int up = dist[i][j];
+                int down = up + i - r;
+
+                if (up <= u && down <= d) {
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
+    }
+}
