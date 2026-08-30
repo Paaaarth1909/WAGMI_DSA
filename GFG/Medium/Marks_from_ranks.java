@@ -18,3 +18,57 @@ Constraints:
 
 1 ≤ l.size(), l[i], r.size(), r[i], rank.size(), rank[i] ≤ 105 
 */
+import java.util.*;
+
+class Solution {
+    public ArrayList<Integer> getMarks(int[] l, int[] r, int[] rank) {
+
+        int n = l.length;
+        int q = rank.length;
+
+        // Store {rank, original index}
+        int[][] queries = new int[q][2];
+
+        for (int i = 0; i < q; i++) {
+            queries[i][0] = rank[i];
+            queries[i][1] = i;
+        }
+
+        // Process ranks in increasing order
+        Arrays.sort(queries, (a, b) -> Integer.compare(a[0], b[0]));
+
+        int[] result = new int[q];
+
+        int interval = 0;
+        long passed = 0;
+
+        for (int i = 0; i < q; i++) {
+
+            int k = queries[i][0];
+
+            while (interval < n) {
+
+                long size = (long) r[interval] - l[interval] + 1;
+
+                if (passed + size >= k) {
+                    break;
+                }
+
+                passed += size;
+                interval++;
+            }
+
+            // k-th mark lies in this interval
+            result[queries[i][1]] =
+                (int) (l[interval] + (k - passed - 1));
+        }
+
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        for (int x : result) {
+            ans.add(x);
+        }
+
+        return ans;
+    }
+}
