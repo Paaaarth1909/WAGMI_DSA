@@ -1,3 +1,4 @@
+package GFG.Medium;
 /* Given four integers n, i, d, and c, where:
 
 i is the cost of inserting a single character,
@@ -34,3 +35,26 @@ Constraints:
 1 ≤ n ≤ 106
 1 ≤ i, d, c ≤ 100
 */
+class Solution {
+    public int minCost(int n, int i, int d, int c) {
+
+        long[] dp = new long[n + 1];
+
+        for (int x = 1; x <= n; x++) {
+            dp[x] = dp[x - 1] + i;
+
+            if (x % 2 == 0) {
+                // Reach x by copy-pasting from x/2
+                dp[x] = Math.min(dp[x],
+                        dp[x / 2] + c);
+            } else {
+                // Reach x by first reaching x+1,
+                // then deleting one character.
+                dp[x] = Math.min(dp[x],
+                        dp[(x + 1) / 2] + c + d);
+            }
+        }
+
+        return (int) dp[n];
+    }
+}
