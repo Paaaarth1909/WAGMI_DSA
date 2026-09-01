@@ -17,3 +17,35 @@ Constraints:
 1 ≤ n ≤ 52
 n ≤ 2*k 
 */
+class Solution {
+    static final long MOD = 1000000007;
+
+    public int palindromicStrings(int n, int k) {
+
+        long ans = 0;
+        long ways = 1;
+
+        // m = number of pairs
+        // Maximum possible length is min(n, 2*k)
+        for (int m = 0; m <= k; m++) {
+
+            // Even length = 2*m
+            if (2 * m <= n) {
+                if (m == 0) {
+                    ans = (ans + 0) % MOD; // empty string is not counted
+                } else {
+                    ways = (ways * (k - m + 1)) % MOD;
+                    ans = (ans + ways) % MOD;
+                }
+            }
+
+            // Odd length = 2*m + 1
+            if (2 * m + 1 <= n) {
+                long oddWays = (ways * (k - m)) % MOD;
+                ans = (ans + oddWays) % MOD;
+            }
+        }
+
+        return (int) ans;
+    }
+}
