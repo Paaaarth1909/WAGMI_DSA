@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /* Given an array arr[] representing the fruit values of trees arranged in a circle and an integer m, find the maximum total fruits the bird can collect by visiting at most m trees.
 
 Bird can start from any tree and move to a neighboring tree.
@@ -21,3 +24,27 @@ arr.size() ≤ 106
 0 ≤ arr[i] ≤ 106
 1 ≤ m ≤ arr.size() 
 */
+class Solution {
+    public int maxFruits(ArrayList<Integer> arr, int m) {
+
+        int n = arr.size();
+
+        long window = 0;
+        long ans = 0;
+
+        for (int i = 0; i < n + m - 1; i++) {
+
+            window += arr.get(i % n);
+
+            if (i >= m) {
+                window -= arr.get((i - m) % n);
+            }
+
+            if (i >= m - 1) {
+                ans = Math.max(ans, window);
+            }
+        }
+
+        return (int) ans;
+    }
+}
